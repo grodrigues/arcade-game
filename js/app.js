@@ -17,9 +17,9 @@ class Enemy extends Component {
     }
     update(dt){
         if (this.colission()) {
-            alert();
+            alert('Você Morreu');
             player.reset();
-            this.reset();
+            this.reset();           
         }else{
             this.x += this.speed * dt;
             if(this.x >= 505){
@@ -28,11 +28,11 @@ class Enemy extends Component {
         }
     }
     colission(){
-        return ((this.x + 101 - 303 > player.x
-                && this.x + 101 - 30 < player.x + 101
-                || this.x >= player.x
-                && this.x < player.x + 101 - 30))
-                && this.y === player.y;
+        return((this.x + 100 - 30 >= player.x) 
+          && (this.x + 100 - 30 <= player.x + 101) 
+          || (this.x >= player.x) 
+          && (this.x <= player.x + 101 - 30)) 
+        && this.y === player.y;
     }
     reset(){
         this.x = 101;
@@ -54,7 +54,7 @@ class Player extends Component {
                 this.y -= this.moveY;
                 break;
             case 'right':
-                if(this.y - this.moveX > 404)
+                if(this.y - this.moveX > 505)
                     return;
                 this.x += this.moveX;
                 break;
@@ -85,7 +85,7 @@ class Player extends Component {
         this.move = mov;
     }
 }
-let player = new Player (202, 400, 'images/char-boy.png');
+let player = new Player (202, 395, 'images/char-boy.png');
 
 
 // Now instantiate your objects.

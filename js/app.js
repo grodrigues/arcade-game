@@ -72,7 +72,7 @@ class Player extends Component {
                 break;
         }
         if(this.y == -20){
-            alert('teste');
+            alert('Você Ganhou !!');
             this.reset();
         }       
         this.move = '';

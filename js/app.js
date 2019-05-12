@@ -54,7 +54,7 @@ class Player extends Component {
                 this.y -= this.moveY;
                 break;
             case 'right':
-                if(this.y - this.moveX > 505)
+                if(this.x + this.moveX > 450)
                     return;
                 this.x += this.moveX;
                 break;
